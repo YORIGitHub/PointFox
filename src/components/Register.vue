@@ -28,6 +28,7 @@
 
 <script>
 import Axios from "axios";
+const url = "http://localhost:3000";
 export default {
   name: "register",
   data() {
@@ -46,7 +47,7 @@ export default {
       // }).then(function (response) {
       //   alert(response.data);
       // });
-      Axios.post("http://localhost:3000/register", {
+      Axios.post(url + "/register", {
         params: this.newUser,
       }).then(function (response) {
         alert(response.data);
