@@ -47,7 +47,7 @@ export default {
       // }).then(function (response) {
       //   alert(response.data);
       // });
-      Axios.post(url + "/register", {
+      Axios.post(url+"/register", {
         params: this.newUser,
       }).then(function (response) {
         alert(response.data);
