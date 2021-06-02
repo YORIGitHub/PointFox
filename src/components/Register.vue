@@ -80,11 +80,13 @@ export default {
       //   //请求体 响应体 消息体
       //   console.log(resx);
       // });
+
       // Axios.get("http://localhost:3000/register", {
       //   params: this.newUser,
       // }).then(function (response) {
       //   alert(response.data);
       // });
+      
       Axios.post(url + "/register", {
         params: this.newUser,
       }).then(function (response) {

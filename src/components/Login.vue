@@ -9,7 +9,12 @@
           >
         </div>
         <div id="loginContentBody">
-          <el-input id="username" v-model="user.username" clearable></el-input>
+          <el-input
+            id="username"
+            v-model="user.username"
+            clearable
+            :class="this.usernameTips ? username1 : username2"
+          ></el-input>
           <el-input
             id="password"
             v-model="user.password"
@@ -37,6 +42,9 @@ export default {
         username: "",
         password: "",
       },
+      usernameTips: true,
+      username1: "username1",
+      username2: "username2",
     };
   },
   methods: {
@@ -50,12 +58,17 @@ export default {
       //   that.$router.push({ path: "/work" });
       // });
 
-      Axios.post("http://localhost:3000/login", {
-        params: this.user,
-      }).then(function (response) {
-        alert(response.data.username);
-        alert(response.data.password);
-        that.$router.push({ path: "/work" });
+      // Axios.post("http://localhost:3000/login", {
+      //   params: this.user,
+      // }).then(function (response) {
+      //   alert(response.data.username);
+      //   alert(response.data.password);
+      //   that.$router.push({ path: "/work" });
+      // });
+
+      // this.$router.push({ path: "/work" });
+      Axios.post("/login", { params: this.user }).then((resx) => {
+        console.log(resx);
       });
     },
   },
@@ -82,5 +95,11 @@ export default {
 #password {
   margin-top: 5px;
   margin-bottom: 8px;
+}
+.username1 {
+  border-color: green;
+}
+.username2 {
+  border-color: red;
 }
 </style>
